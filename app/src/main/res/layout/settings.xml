@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#8D72FA"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/instructionsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="320dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:padding="30dp"
+        android:text="Settings"
+        android:textSize="48sp"
+        android:textStyle="bold" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        >
+
+
+        <TextView
+            android:id="@+id/textMusic"
+            android:layout_width="181dp"
+            android:layout_height="49dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="Music"
+            android:textSize="30sp"
+            android:fontFamily="@font/roboto_medium"
+            />
+
+        <ToggleButton
+            android:id="@+id/toggleMusic"
+            android:layout_width="wrap_content"
+            android:layout_height="59dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:backgroundTint="#FF9B9B"
+            android:text="ToggleButton" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_margin="10dp"
+        >
+
+
+        <TextView
+            android:id="@+id/textSFX"
+            android:layout_width="181dp"
+            android:layout_height="49dp"
+            android:layout_gravity="center"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="SFX"
+            android:textSize="30sp"
+            android:fontFamily="@font/roboto_medium"
+            />
+
+        <ToggleButton
+            android:id="@+id/toggleSFX"
+            android:layout_width="wrap_content"
+            android:layout_height="59dp"
+            android:layout_weight="1"
+            android:textStyle="bold"
+            android:textSize="25sp"
+            android:backgroundTint="#FF9B9B"
+            android:text="ToggleButton" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/backSettings"
+        android:layout_width="138dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_margin="60dp"
+        android:layout_marginTop="40dp"
+        android:backgroundTint="#E1FF28"
+        android:fontFamily="@font/roboto_medium"
+        android:text="Back"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="#000000" />
+
+
+</LinearLayout >

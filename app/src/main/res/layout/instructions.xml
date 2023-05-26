@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FBC3B0"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/instructionsTitle"
+        android:layout_width="match_parent"
+        android:layout_height="184dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:padding="30dp"
+        android:text="Instructions"
+        android:textSize="48sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/instructions"
+        android:layout_width="314dp"
+        android:layout_height="283dp"
+        android:layout_gravity="center"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center_horizontal"
+        android:text="Welcome to The Big Quiz! To play, click start on the home screen and you will be quizzed on 10 multiple choice questions relating to your chosen topic. To select an answer, click the corresponding box at the bottom.
+
+\n  \n To turn off the music or sound effects, go to settings in the main menu."
+        android:textSize="20dp" />
+
+    <TextView
+        android:id="@+id/right"
+        android:layout_width="301dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center_horizontal"
+        android:padding="50dp"
+        android:text="Good luck!"
+        android:textSize="20dp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="173dp"
+        android:layout_height="60dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="40dp"
+        android:text="Back"
+        android:fontFamily="@font/roboto_medium"
+        android:textColor="#000000"
+        android:backgroundTint="#FF7F50"/>
+
+
+</LinearLayout >

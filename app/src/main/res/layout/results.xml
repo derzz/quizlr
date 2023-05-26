@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#9DE309"
+    android:orientation="vertical">
+
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="206dp"
+        android:fontFamily="sans-serif"
+        android:gravity="center"
+        android:padding="10dp"
+        android:text="Results"
+        android:textSize="48sp"
+        android:textStyle="bold" />
+
+
+    <TextView
+        android:id="@+id/right"
+        android:layout_width="276dp"
+        android:layout_height="84dp"
+        android:layout_gravity="center"
+        android:layout_margin="20dp"
+        android:background="#6BFF53"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center"
+        android:text="X Right"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/wrong"
+        android:layout_width="272dp"
+        android:layout_height="84dp"
+        android:layout_gravity="center"
+        android:layout_margin="10dp"
+        android:background="#FF5C5C"
+        android:fontFamily="@font/roboto_medium"
+        android:gravity="center"
+        android:text="10-X Wrong"
+        android:textColor="@color/black"
+        android:textSize="30sp"
+        android:textStyle="bold" />
+
+    <Button
+        android:id="@+id/tryagain"
+        android:layout_width="343dp"
+        android:layout_height="118dp"
+        android:layout_margin="20dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#4EBFFF"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:text="Try Again?" />
+
+    <Button
+        android:id="@+id/menu"
+        android:layout_width="343dp"
+        android:layout_height="118dp"
+        android:layout_gravity="center"
+        android:backgroundTint="#FF5CE5"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:textSize="30sp"
+        android:text="Back to Menu" />
+
+
+</LinearLayout >
