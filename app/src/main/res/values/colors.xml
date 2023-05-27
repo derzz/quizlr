@@ -1,5 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+
+    // Basic colours
     <color name="black">#FF000000</color>
+    <color name="gray">#808080</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="red">#FF0000</color>
+    <color name="orange">#FFA500</color>
+    <color name="yellow">#FFFF00</color>
+    <color name="green">#00FF00</color>
+    <color name="blue">#0000FF</color>
+    <color name="purple">#A020F0</color>
+    <color name="pink">#FF69B4</color>
+
+    // Title screen colours
+    <color name="titleBackgroundBlue">#438EFF</color>
+    <color name="startButtonBlue">#4EBFFF</color>
+    <color name="instructionButtonBlue">#196FEF</color>
+    <color name="settingsButtonBlue">#054BFF</color>
+
+    // Topic screen colours
+    <color name="topicBackgroundOrange">#FFA500</color>
+    <color name="topicTopicOrange">#FFDAA1</color>
+    <color name="topicBackOrange">#F96815</color>
+
+    // Quiz screen colours
+    <color name="quizBackgroundBlue">#67D2FE</color>
+    <color name="quizCorrectGreen">#6BFF53</color>
+    <color name="quizWrongRed">#FF9B9B</color>
+
 </resources>

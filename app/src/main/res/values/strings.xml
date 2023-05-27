@@ -1,3 +1,25 @@
 <resources>
+
+    // General strings
     <string name="app_name">The Big Quiz App</string>
+    <string name="backButtonText">Back</string>
+
+    // Title screen strings
+    <string name="titleScreenText">The Big Quiz</string>
+    <string name="startButtonText">Start</string>
+    <string name="instructionButtonText">Instructions</string>
+    <string name="settingsButtonText">Settings</string>
+
+    // Topic screen strings
+    <string name="topicButtonText1">University of Waterloo</string>
+    <string name="topicButtonText2">Video Games</string>
+    <string name="topicButtonText3">History</string>
+    <string name="topicButtonText4">Sports</string>
+
+    // Quiz screen strings
+    <string name="quizQuestionText">Sample quiz question goes here</string>
+    <string name="quizOption1">Option 1</string>
+    <string name="quizOption2">Option 2</string>
+    <string name="quizOption3">Option 3</string>
+    <string name="quizOption4">Option 4</string>
 </resources>
