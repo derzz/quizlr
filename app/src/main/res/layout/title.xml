@@ -3,7 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@color/titleBackgroundBlue">
+    android:background="@color/titleBackgroundColour">
 
     <TextView
         android:id="@+id/textView"
@@ -14,6 +14,7 @@
         android:text="@string/titleScreenText"
         android:textColor="@color/black"
         android:textSize="50sp"
+        android:fontFamily="sans-serif"
         app:layout_constraintBottom_toTopOf="@+id/button1"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"
@@ -28,7 +29,8 @@
         android:layout_marginBottom="30dp"
         android:text="@string/startButtonText"
         android:textSize="20sp"
-        app:backgroundTint="@color/startButtonBlue"
+        android:fontFamily="@font/roboto_medium"
+        app:backgroundTint="@color/startButtonColour"
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -41,7 +43,8 @@
         android:layout_marginBottom="30dp"
         android:text="@string/instructionButtonText"
         android:textSize="20sp"
-        app:backgroundTint="@color/instructionButtonBlue"
+        android:fontFamily="@font/roboto_medium"
+        app:backgroundTint="@color/instructionButtonColour"
         app:layout_constraintBottom_toTopOf="@+id/button3"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -54,7 +57,8 @@
         android:layout_marginBottom="80dp"
         android:text="@string/settingsButtonText"
         android:textSize="20sp"
-        app:backgroundTint="@color/settingsButtonBlue"
+        android:fontFamily="@font/roboto_medium"
+        app:backgroundTint="@color/settingsButtonColour"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.502"

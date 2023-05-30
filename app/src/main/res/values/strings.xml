@@ -10,6 +10,17 @@
     <string name="instructionButtonText">Instructions</string>
     <string name="settingsButtonText">Settings</string>
 
+    // Instruction screen strings
+    <string name="instructionsTitleText">Instructions</string>
+    <string name="instructionsInstructionText">Welcome to The Big Quiz! To play, click start on the home screen and you will be quizzed on 10 multiple choice questions relating to your chosen topic. To select an answer, click the corresponding box at the bottom.
+                                                \n\n To turn off the music or sound effects, go to settings in the main menu."</string>
+    <string name="instructionsGoodLuckText">Good luck!</string>
+
+    // Settings screen strings
+    <string name="settingsTitleText">Settings</string>
+    <string name="settingsMusicText">Music</string>
+    <string name="settingsSFXText">SFX</string>
+
     // Topic screen strings
     <string name="topicButtonText1">University of Waterloo</string>
     <string name="topicButtonText2">Video Games</string>
@@ -22,4 +33,13 @@
     <string name="quizOption2">Option 2</string>
     <string name="quizOption3">Option 3</string>
     <string name="quizOption4">Option 4</string>
+
+    // Result screen strings
+    <string name="resultTitleText">Results</string>
+    <string name="resultRightText">X Right</string>
+    <string name="resultWrongText">10-X Wrong</string>
+    <string name="resultTryAgainButtonText">Try Again</string>
+    <string name="resultBackToTopicsButtonText">Back to Topics</string>
+    <string name="resultBackToMenuButtonText">Back to Menu</string>
+
 </resources>

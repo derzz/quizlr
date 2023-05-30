@@ -13,20 +13,35 @@
     <color name="purple">#A020F0</color>
     <color name="pink">#FF69B4</color>
 
+    // General colours
+    <color name="correctColour">#6BFF53</color>
+    <color name="wrongColour">#FF5C5C</color>
+
     // Title screen colours
-    <color name="titleBackgroundBlue">#438EFF</color>
-    <color name="startButtonBlue">#4EBFFF</color>
-    <color name="instructionButtonBlue">#196FEF</color>
-    <color name="settingsButtonBlue">#054BFF</color>
+    <color name="titleBackgroundColour">#438EFF</color>
+    <color name="startButtonColour">#4EBFFF</color>
+    <color name="instructionButtonColour">#196FEF</color>
+    <color name="settingsButtonColour">#054BFF</color>
+
+    // Instructions screen colours
+    <color name="instructionsBackgroundColour">#FBC3B0</color>
+    <color name="instructionsBackColour">#FF7F50</color>
+
+    // Settings screen colours
+    <color name="settingsBackgroundColour">#8D72FA</color>
+    <color name="settingsBackColour">#8A2BE2</color>
 
     // Topic screen colours
-    <color name="topicBackgroundOrange">#FFA500</color>
-    <color name="topicTopicOrange">#FFDAA1</color>
-    <color name="topicBackOrange">#F96815</color>
+    <color name="topicBackgroundColour">#FFA500</color>
+    <color name="topicTopicColour">#FFDAA1</color>
+    <color name="topicBackColour">#F96815</color>
 
     // Quiz screen colours
-    <color name="quizBackgroundBlue">#67D2FE</color>
-    <color name="quizCorrectGreen">#6BFF53</color>
-    <color name="quizWrongRed">#FF9B9B</color>
+    <color name="quizBackgroundColour">#67D2FE</color>
 
+    // Result screen colours
+    <color name="resultsBackgroundColour">#9DE309</color>
+    <color name="resultsTryAgainColour">#4EBFFF</color>
+    <color name="resultsBackToTopicsColour">#FFB347</color>
+    <color name="resultsBackToMenuColour">#FF5CE5</color>
 </resources>
