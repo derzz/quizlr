@@ -43,15 +43,15 @@
         android:textColor="@color/black"/>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/backButton"
         android:layout_width="120dp"
         android:layout_height="70dp"
         android:layout_gravity="center"
-        android:layout_marginTop="40dp"
-        android:text="@string/backButtonText"
-        android:fontFamily="@font/roboto_medium"
-        android:textColor="@color/black"
+        android:layout_marginTop="30dp"
         android:backgroundTint="@color/instructionsBackColour"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/backButtonText"
+        android:textColor="@color/black"
         android:textSize="20sp"
         android:textStyle="bold" />
 
