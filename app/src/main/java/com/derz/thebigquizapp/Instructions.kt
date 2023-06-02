@@ -13,8 +13,7 @@ class Instructions : AppCompatActivity(){
 
         val buttonClick = findViewById<Button>(R.id.backButton);
         buttonClick.setOnClickListener{
-            val intent = Intent(this, MainActivity::class.java)
-            startActivity(intent)
+            finish();
         }
     }
 }
