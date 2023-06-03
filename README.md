@@ -1,2 +1,2 @@
 # The Big Quiz App
-Created by Daniel Zhang and Michael Xie
+Created by Daniel Zhang and Michael Xie using Android Studio and written in Kotlin.
