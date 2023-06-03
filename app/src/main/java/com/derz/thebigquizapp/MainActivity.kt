@@ -10,23 +10,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val instructionClick = findViewById<Button>(R.id.instructionButton);
-        instructionClick.setOnClickListener{
-            val intent = Intent(this, Instructions::class.java)
-            startActivity(intent)
-        }
-
-        val topicClick = findViewById<Button>(R.id.topicsButton);
+        val topicClick = findViewById<Button>(R.id.titleStartButton)
         topicClick.setOnClickListener{
             val intent = Intent(this, Topics::class.java)
             startActivity(intent)
         }
 
-        val settingsClick = findViewById<Button>(R.id.settingsButton);
+        val instructionClick = findViewById<Button>(R.id.titleInstructionButton)
+        instructionClick.setOnClickListener{
+            val intent = Intent(this, Instructions::class.java)
+            startActivity(intent)
+        }
+
+        val settingsClick = findViewById<Button>(R.id.titleSettingsButton)
         settingsClick.setOnClickListener{
             val intent = Intent(this, Settings::class.java)
             startActivity(intent)
         }
-
     }
 }

@@ -6,7 +6,7 @@
     android:background="@color/quizBackgroundColour">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/quizQuestionText"
         android:layout_width="360dp"
         android:layout_height="154dp"
         android:layout_marginTop="44dp"
@@ -21,12 +21,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button9"
+        android:id="@+id/quizOption1Button"
         android:layout_width="190dp"
         android:layout_height="190dp"
         android:layout_marginStart="10dp"
         android:layout_marginTop="340dp"
-        android:backgroundTint="@color/correctColour"
+        android:backgroundTint="@color/generalCorrectColour"
         android:text="@string/quizOption1"
         android:textColor="@color/black"
         android:textSize="32sp"
@@ -36,12 +36,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button10"
+        android:id="@+id/quizOption2Button"
         android:layout_width="190dp"
         android:layout_height="190dp"
         android:layout_marginTop="340dp"
         android:layout_marginEnd="10dp"
-        android:backgroundTint="@color/wrongColour"
+        android:backgroundTint="@color/generalWrongColour"
         android:text="@string/quizOption2"
         android:textColor="@color/black"
         android:textSize="32sp"
@@ -51,12 +51,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button11"
+        android:id="@+id/quizOption3Button"
         android:layout_width="190dp"
         android:layout_height="190dp"
         android:layout_marginStart="10dp"
         android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/wrongColour"
+        android:backgroundTint="@color/generalWrongColour"
         android:text="@string/quizOption3"
         android:textColor="@color/black"
         android:textSize="32sp"
@@ -64,15 +64,15 @@
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button9" />
+        app:layout_constraintTop_toBottomOf="@+id/quizOption1Button" />
 
     <Button
-        android:id="@+id/button12"
+        android:id="@+id/quizOption4Button"
         android:layout_width="190dp"
         android:layout_height="190dp"
         android:layout_marginEnd="10dp"
         android:layout_marginBottom="10dp"
-        android:backgroundTint="@color/wrongColour"
+        android:backgroundTint="@color/generalWrongColour"
         android:text="@string/quizOption4"
         android:textColor="@color/black"
         android:textSize="32sp"
@@ -80,6 +80,6 @@
         app:cornerRadius="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button10" />
+        app:layout_constraintTop_toBottomOf="@+id/quizOption2Button" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/instructionsTitle"
+        android:id="@+id/instructionsTitleText"
         android:layout_width="match_parent"
         android:layout_height="184dp"
         android:fontFamily="sans-serif"
@@ -19,7 +19,7 @@
         android:textStyle="bold" />
 
     <TextView
-        android:id="@+id/instructions"
+        android:id="@+id/instructionsInstructionsText"
         android:layout_width="314dp"
         android:layout_height="283dp"
         android:layout_gravity="center"
@@ -30,24 +30,24 @@
         android:textColor="@color/black"/>
 
     <TextView
-        android:id="@+id/right"
+        android:id="@+id/instructionsGoodLuckText"
         android:layout_width="301dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:fontFamily="@font/roboto_medium"
         android:gravity="center_horizontal"
-        android:padding="50dp"
+        android:padding="0dp"
         android:text="@string/instructionsGoodLuckText"
         android:textSize="20sp"
         android:textStyle="bold"
         android:textColor="@color/black"/>
 
     <Button
-        android:id="@+id/backButton"
+        android:id="@+id/instructionsBackButton"
         android:layout_width="120dp"
         android:layout_height="70dp"
         android:layout_gravity="center"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/instructionsBackColour"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/backButtonText"

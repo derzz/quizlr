@@ -6,10 +6,10 @@
     android:background="@color/topicBackgroundColour">
 
     <Button
-        android:id="@+id/button4"
+        android:id="@+id/topicsUWaterlooButton"
         android:layout_width="320dp"
         android:layout_height="120dp"
-        android:layout_marginTop="50dp"
+        android:layout_marginTop="20dp"
         android:backgroundTint="@color/topicTopicColour"
         android:text="@string/topicButtonText1"
         android:textColor="@color/black"
@@ -22,7 +22,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/button5"
+        android:id="@+id/topicsVideoGamesButton"
         android:layout_width="320dp"
         android:layout_height="120dp"
         android:layout_marginTop="20dp"
@@ -35,10 +35,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button4" />
+        app:layout_constraintTop_toBottomOf="@+id/topicsUWaterlooButton" />
 
     <Button
-        android:id="@+id/button6"
+        android:id="@+id/topicsHistoryButton"
         android:layout_width="320dp"
         android:layout_height="120dp"
         android:layout_marginTop="20dp"
@@ -51,10 +51,10 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button5" />
+        app:layout_constraintTop_toBottomOf="@+id/topicsVideoGamesButton" />
 
     <Button
-        android:id="@+id/button7"
+        android:id="@+id/topicsSportsButton"
         android:layout_width="320dp"
         android:layout_height="120dp"
         android:layout_marginTop="20dp"
@@ -67,23 +67,23 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.494"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button6" />
+        app:layout_constraintTop_toBottomOf="@+id/topicsHistoryButton" />
 
     <Button
-        android:id="@+id/button8"
+        android:id="@+id/topicsBackButton"
         android:layout_width="120dp"
         android:layout_height="70dp"
-        android:layout_marginTop="32dp"
-        android:text="@string/backButtonText"
-        android:textSize="20sp"
-        android:textColor="@color/black"
-        android:textStyle="bold"
+        android:layout_marginTop="10dp"
         android:fontFamily="@font/roboto_medium"
+        android:text="@string/backButtonText"
+        android:textColor="@color/black"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:backgroundTint="@color/topicBackColour"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/button7"
-        app:layout_constraintVertical_bias="0.205" />
+        app:layout_constraintTop_toBottomOf="@+id/topicsSportsButton"
+        app:layout_constraintVertical_bias="0.366" />
 </androidx.constraintlayout.widget.ConstraintLayout>
