@@ -14,7 +14,7 @@
         android:gravity="center"
         android:padding="30dp"
         android:text="@string/settingsTitleText"
-        android:textColor="@color/black"
+        android:textColor="@color/white"
         android:textSize="48sp"
         android:textStyle="bold" />
 
@@ -27,25 +27,22 @@
 
         <TextView
             android:id="@+id/settingsMusicText"
-            android:layout_width="181dp"
+            android:layout_width="0dp"
             android:layout_height="49dp"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/settingsMusicText"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="30sp"
             android:fontFamily="@font/roboto_medium"
             />
 
-        <ToggleButton
-            android:id="@+id/settingsMusicToggleButton"
+        <androidx.appcompat.widget.SwitchCompat
             android:layout_width="wrap_content"
-            android:layout_height="59dp"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:backgroundTint="@color/generalCorrectColour" />
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:checked="true" />
     </LinearLayout>
 
     <LinearLayout
@@ -57,26 +54,21 @@
 
         <TextView
             android:id="@+id/settingsSFXText"
-            android:layout_width="181dp"
+            android:layout_width="0dp"
             android:layout_height="49dp"
             android:layout_gravity="center"
             android:layout_weight="1"
             android:gravity="center"
             android:text="@string/settingsSFXText"
-            android:textColor="@color/black"
+            android:textColor="@color/white"
             android:textSize="30sp"
-            android:fontFamily="@font/roboto_medium"
-            />
+            android:fontFamily="@font/roboto_medium" />
 
-        <ToggleButton
-            android:id="@+id/settingsSFXToggleButton"
+        <androidx.appcompat.widget.SwitchCompat
             android:layout_width="wrap_content"
-            android:layout_height="59dp"
-            android:layout_weight="1"
-            android:textStyle="bold"
-            android:textSize="25sp"
-            android:backgroundTint="@color/generalCorrectColour" />
-
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="20dp"
+            android:checked="true" />
     </LinearLayout>
 
     <Button
@@ -91,5 +83,5 @@
         android:text="@string/backButtonText"
         android:textSize="20sp"
         android:textStyle="bold"
-        android:textColor="@color/black" />
+        android:textColor="@color/white" />
 </LinearLayout>
