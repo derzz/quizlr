@@ -1,7 +1,11 @@
 package com.derz.thebigquizapp
 
-class Question(private val question: String, private var answers: MutableList<String>,
-               private val correctAnswer: String, private var isAnswered: Boolean) {
+data class Question(
+    private val question: String,
+    private var answers: MutableList<String>,
+    private val correctAnswer: String,
+    private var isAnswered: Boolean
+    ) {
 
     // Randomize answers
     fun randomizeAnswers() {

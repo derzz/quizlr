@@ -9,7 +9,7 @@
         android:id="@+id/topicsUWaterlooButton"
         android:layout_width="320dp"
         android:layout_height="120dp"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="40dp"
         android:backgroundTint="@color/topicTopicColour"
         android:text="@string/topicButtonText1"
         android:textColor="@color/black"
@@ -73,7 +73,6 @@
         android:id="@+id/topicsBackButton"
         android:layout_width="120dp"
         android:layout_height="70dp"
-        android:layout_marginTop="10dp"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/backButtonText"
         android:textColor="@color/black"
@@ -85,5 +84,5 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/topicsSportsButton"
-        app:layout_constraintVertical_bias="0.366" />
+        app:layout_constraintVertical_bias="0.237" />
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -8,11 +8,11 @@ import androidx.appcompat.app.AppCompatActivity
 class Instructions : AppCompatActivity(){
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        getWindow().setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
+        window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.instructions)
 
-        val buttonClick = findViewById<Button>(R.id.instructionsBackButton)
-        buttonClick.setOnClickListener{
+        val backButton = findViewById<Button>(R.id.instructionsBackButton)
+        backButton.setOnClickListener{
             finish()
         }
     }

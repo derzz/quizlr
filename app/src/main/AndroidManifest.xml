@@ -35,6 +35,9 @@
         <activity
             android:name=".Settings"
             android:screenOrientation="portrait"/>
+        <activity
+            android:name=".QuizView"
+            android:screenOrientation="portrait"/>
 
         <meta-data
             android:name="preloaded_fonts"
