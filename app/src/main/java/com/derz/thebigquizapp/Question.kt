@@ -2,7 +2,7 @@ package com.derz.thebigquizapp
 
 data class Question(
     private val question: String,
-    private var answers: MutableList<String>,
+    private var answers: MutableList<Answer>,
     private val correctAnswer: String,
     private var isAnswered: Boolean
     ) {
@@ -17,7 +17,7 @@ data class Question(
         return this.question
     }
 
-    fun getAnswers(): MutableList<String> {
+    fun getAnswers(): MutableList<Answer> {
         return this.answers
     }
 

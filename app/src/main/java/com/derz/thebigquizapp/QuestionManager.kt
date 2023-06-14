@@ -16,11 +16,17 @@ class QuestionManager {
         var line: String = ""
         while (reader.readLine().also {line = it} != null) {
             val row: List<String> = line.split("\t")
-            var answers: MutableList<String> = arrayListOf()
+            var answers: MutableList<Answer> = arrayListOf()
 
             // Add answers to question answer list
             for (i in 1 until 5) {
-                answers.add(row[i])
+                var tempAnswer: Answer
+                if (i == 1) {
+                    tempAnswer = Answer(row[i], true)
+                } else {
+                    tempAnswer = Answer(row[i], false)
+                }
+                answers.add(tempAnswer)
             }
 
             // Creates new question and adds it to list of questions
