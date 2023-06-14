@@ -1,14 +1,20 @@
 package com.derz.thebigquizapp
 
+import android.os.Parcel
+import android.os.Parcelable
 import java.io.BufferedReader
 import java.util.LinkedList
 import java.util.Queue
 import java.io.InputStreamReader
 
-class QuestionManager {
+class QuestionManager() : Parcelable {
 
     private var questionList: MutableList<Question> = arrayListOf()
-    private var questionQueue: Queue<Question> = LinkedList<Question>()
+    private var questionQueue: Queue<Question> = LinkedList()
+
+    constructor(parcel: Parcel) : this() {
+
+    }
 
     fun fillQuestionList(inputStreamReader: InputStreamReader) {
         // Read TSV file
@@ -73,5 +79,23 @@ class QuestionManager {
 
     fun getQuestionQueue(): Queue<Question> {
         return this.questionQueue
+    }
+
+    override fun writeToParcel(parcel: Parcel, flags: Int) {
+
+    }
+
+    override fun describeContents(): Int {
+        return 0
+    }
+
+    companion object CREATOR : Parcelable.Creator<QuestionManager> {
+        override fun createFromParcel(parcel: Parcel): QuestionManager {
+            return QuestionManager(parcel)
+        }
+
+        override fun newArray(size: Int): Array<QuestionManager?> {
+            return arrayOfNulls(size)
+        }
     }
 }

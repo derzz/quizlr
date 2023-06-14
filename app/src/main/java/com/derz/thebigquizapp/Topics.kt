@@ -9,6 +9,9 @@ import androidx.appcompat.app.AppCompatActivity
 import java.io.InputStreamReader
 
 class Topics: AppCompatActivity(), View.OnClickListener {
+
+    private lateinit var questionManager: QuestionManager
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
@@ -33,7 +36,7 @@ class Topics: AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        var questionManager = QuestionManager()
+        questionManager = QuestionManager()
 
         var path = when (v?.id) {
             R.id.topicsUWaterlooButton -> "University of Waterloo.tsv"
@@ -46,6 +49,7 @@ class Topics: AppCompatActivity(), View.OnClickListener {
         var inputStreamReader = InputStreamReader(assets.open(path))
         questionManager.fillQuestionList(inputStreamReader)
         val intent = Intent(this, QuizView::class.java)
+        intent.putExtra("questionManager", questionManager)
         startActivity(intent)
     }
 }
