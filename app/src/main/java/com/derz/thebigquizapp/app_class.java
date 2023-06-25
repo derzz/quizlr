@@ -1,15 +1,35 @@
 package com.derz.thebigquizapp;
 
+import static android.app.ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND;
+import static android.app.ActivityManager.RunningAppProcessInfo.IMPORTANCE_VISIBLE;
+
 import android.app.Activity;
+import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
 
+
 public class app_class extends Application implements Application.ActivityLifecycleCallbacks {
-    private static int resumed;
-    private static int paused;
+
+    public static boolean isActivityVisible() {
+        return activityVisible;
+    }
+
+    public static void activityResumed() {
+        activityVisible = true;
+    }
+
+    public static void activityPaused() {
+        activityVisible = false;
+    }
+
+    private static boolean activityVisible;
+
+    private static boolean isMusicSwitch = true; // Flag to track internal activity switch
 
     private static String currentActivity;
 
@@ -19,6 +39,10 @@ public class app_class extends Application implements Application.ActivityLifecy
 
         // Register the app_class as a callback for activity lifecycle events
         registerActivityLifecycleCallbacks(this);
+
+        // Start the music service
+        Intent intent = new Intent(this, Music.class);
+        startService(intent);
     }
 
     @Override
@@ -36,32 +60,44 @@ public class app_class extends Application implements Application.ActivityLifecy
 
     @Override
     public void onActivityResumed(Activity activity) {
-        send_status(1);
+        if (isMusicSwitch) {
+            sendStatus(1);
+            Toast.makeText(this, "test resume", Toast.LENGTH_SHORT).show();
+        }
     }
 
     @Override
     public void onActivityPaused(Activity activity) {
-        send_status(0);
+        if (!activityVisible || !isMusicSwitch) {
+            sendStatus(0);
+        }
     }
 
-    private void send_status(int status_counter) {
+    private void sendStatus(int statusCounter) {
         Intent intent = new Intent("status");
-        intent.putExtra("status", String.valueOf(status_counter));
+        intent.putExtra("status", String.valueOf(statusCounter));
         LocalBroadcastManager.getInstance(this).sendBroadcast(intent);
     }
 
     @Override
     public void onActivityStopped(Activity activity) {
-
     }
 
     @Override
     public void onActivitySaveInstanceState(Activity activity, Bundle outState) {
-
     }
 
     @Override
     public void onActivityDestroyed(Activity activity) {
-        send_status(2);
+        //sendStatus(2);
+    }
+
+    // Method to set the internal switch flag
+    public static void setMusicSwitch(boolean internalSwitch) {
+        isMusicSwitch = internalSwitch;
+    }
+
+    public static boolean getMusicSwitch() {
+        return isMusicSwitch;
     }
 }
