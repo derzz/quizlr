@@ -15,11 +15,6 @@ class MainActivity : AppCompatActivity() {
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.activity_main)
 
-       Intent(this, Music::class.java).also { music ->
-           Log.d("TEST", "Starting music service!")
-           startService(music)
-       }
-
         val topicClick = findViewById<Button>(R.id.titleStartButton)
         topicClick.setOnClickListener{
             val intent = Intent(this, Topics::class.java)

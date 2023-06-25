@@ -25,22 +25,34 @@ public class Music extends Service {
         @Override
         public void onReceive(Context context, Intent intent) {
             String status = intent.getStringExtra("status");
-            if (parseInt(String.valueOf(status)) == 0) {
-                player.pause();  //When app is in background and not killed, we just want to pause the player and not want to lose the current state.
-            } else if (parseInt(String.valueOf(status)) == 1) {
-                if (player != null)
-                    player.start();  // If the player was created and wasn't stopped, it won't be null, and the playback will be resumed from where we left of.
-                else {
-                    // If the player was stopped, we need to prepare it once again.
-                    player = MediaPlayer.create(context, R.raw.quiz_music);
-                    player.setLooping(true);
-                    player.start();
+            // Pause the music
+            if (status != null) {
+                int musicStatus = Integer.parseInt(status);
+
+                if (musicStatus == 0) {
+                    if (player != null && player.isPlaying()) {
+                        player.pause();
+                    }
+                } else if (musicStatus == 1) {
+                    if (player == null) {
+                        player = MediaPlayer.create(context, R.raw.quiz_music);
+                        player.setLooping(true);
+                    }
+                    if (!player.isPlaying()) {
+                        player.start();
+                    }
                 }
-            } else if(player != null){
+                else if (musicStatus == 2) {
+                    if (player != null && player.isPlaying()) {
+                        player.stop();
+                        player.release();
+                    }
+                }
+            }
+            else if(player != null){
                 player.stop();
                 player.release();
             }
-
         }
     };
 
@@ -57,12 +69,21 @@ public class Music extends Service {
         return Service.START_NOT_STICKY;
     }
 
+    @Override
     public void onDestroy() {
-        player.stop();
-        player.release();
-        stopSelf();
+        // Unregister the broadcast receiver
+        LocalBroadcastManager.getInstance(this).unregisterReceiver(StateReceiver);
+
+        // Stop and release the player
+        if (player != null) {
+            player.stop();
+            player.release();
+            player = null;
+        }
+
         super.onDestroy();
     }
+
 
 
 }
