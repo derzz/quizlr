@@ -62,7 +62,6 @@ public class app_class extends Application implements Application.ActivityLifecy
     public void onActivityResumed(Activity activity) {
         if (isMusicSwitch) {
             sendStatus(1);
-            Toast.makeText(this, "test resume", Toast.LENGTH_SHORT).show();
         }
     }
 
