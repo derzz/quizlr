@@ -22,27 +22,27 @@ class QuestionManager() : Parcelable {
 
         // Code is crashing. Temporarily commented out.
 
-//        val reader = BufferedReader(inputStreamReader)
-//        var line = ""
-//
-//        while (reader.readLine().also {line = it} != null) {
-//            val row: List<String> = line.split("\t")
-//            var answers: MutableList<Answer> = arrayListOf()
-//
-//            // Add answers to question answer list
-//            for (i in 1 until 5) {
-//                var tempAnswer: Answer = if (i == 1) { // Adds the correct answer to the list
-//                    Answer(row[i], true)
-//                } else { // Adds the incorrect answers to the list
-//                    Answer(row[i], false)
-//                }
-//                answers.add(tempAnswer)
-//            }
-//
-//            // Creates new question and adds it to list of questions
-//            var tempQuestion = Question(row[0], answers, row[1], false)
-//            questionList.add(tempQuestion)
-//        }
+        val reader = BufferedReader(inputStreamReader)
+        var line: String? = ""
+
+        while (reader.readLine().also {line = it} != null) {
+            val row: List<String> = line?.split("\t") ?: arrayListOf()
+            var answers: MutableList<Answer> = arrayListOf()
+
+            // Add answers to question answer list
+            for (i in 1 until 5) {
+                var tempAnswer: Answer = if (i == 1) { // Adds the correct answer to the list
+                    Answer(row[i], true)
+                } else { // Adds the incorrect answers to the list
+                    Answer(row[i], false)
+                }
+                answers.add(tempAnswer)
+            }
+
+            // Creates new question and adds it to list of questions
+            var tempQuestion = Question(row[0], answers, row[1], false)
+            questionList.add(tempQuestion)
+        }
     }
 
     fun pushQuestionsIntoQueue() {
