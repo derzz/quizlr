@@ -2,6 +2,7 @@ package com.derz.thebigquizapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
@@ -51,5 +52,6 @@ class Topics: AppCompatActivity(), View.OnClickListener {
         val intent = Intent(this, QuizView::class.java)
         intent.putExtra("questionManager", questionManager)
         startActivity(intent)
+        Log.d("asdfg", "HI")
     }
 }
