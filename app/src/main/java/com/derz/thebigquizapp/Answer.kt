@@ -6,10 +6,10 @@ import android.os.Parcelable
 data class Answer(
     private var answer: String,
     private var isCorrectAnswer: Boolean
-) : Parcelable {
+    ) : Parcelable {
 
     constructor(parcel: Parcel) : this(
-        parcel.readString()!!,
+        parcel.readString() ?: "",
         parcel.readByte() != 0.toByte()
     ) {
     }
