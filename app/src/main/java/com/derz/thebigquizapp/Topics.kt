@@ -52,6 +52,5 @@ class Topics: AppCompatActivity(), View.OnClickListener {
         val intent = Intent(this, QuizView::class.java)
         intent.putExtra("questionManager", questionManager)
         startActivity(intent)
-        Log.d("asdfg", "HI")
     }
 }

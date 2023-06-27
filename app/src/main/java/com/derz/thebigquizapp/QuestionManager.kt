@@ -14,13 +14,11 @@ class QuestionManager() : Parcelable {
     private var questionQueue: Queue<Question> = LinkedList()
 
     constructor(parcel: Parcel) : this() {
-
+        parcel.readList(questionList, Question::class.java.classLoader)
     }
 
     fun fillQuestionList(inputStreamReader: InputStreamReader) {
         // Read TSV file
-
-        // Code is crashing. Temporarily commented out.
 
         val reader = BufferedReader(inputStreamReader)
         var line: String? = ""
@@ -86,7 +84,7 @@ class QuestionManager() : Parcelable {
     }
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
-
+        parcel.writeList(questionList)
     }
 
     override fun describeContents(): Int {
