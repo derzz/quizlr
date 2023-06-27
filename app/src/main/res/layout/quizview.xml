@@ -22,53 +22,6 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/quizOption1Button"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginTop="196dp"
-        android:backgroundTint="@color/generalCorrectColour"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/quizOption1"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        app:cornerRadius="20dp"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/quizOption2Button"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginTop="196dp"
-        android:layout_marginEnd="5dp"
-        android:backgroundTint="@color/generalWrongColour"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/quizOption2"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        app:cornerRadius="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <Button
-        android:id="@+id/quizOption3Button"
-        android:layout_width="170dp"
-        android:layout_height="170dp"
-        android:layout_marginStart="5dp"
-        android:layout_marginBottom="5dp"
-        android:backgroundTint="@color/generalWrongColour"
-        android:fontFamily="@font/roboto_medium"
-        android:text="@string/quizOption3"
-        android:textColor="@color/black"
-        android:textSize="32sp"
-        app:cornerRadius="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/quizOption1Button"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
         android:id="@+id/quizOption4Button"
         android:layout_width="170dp"
         android:layout_height="170dp"
@@ -83,6 +36,53 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/quizOption2Button"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.015" />
+
+    <Button
+        android:id="@+id/quizOption3Button"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginBottom="5dp"
+        android:backgroundTint="@color/generalWrongColour"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/quizOption3"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/quizOption1Button"
+        app:layout_constraintVertical_bias="0.015" />
+
+    <Button
+        android:id="@+id/quizOption2Button"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginTop="288dp"
+        android:layout_marginEnd="4dp"
+        android:backgroundTint="@color/generalWrongColour"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/quizOption2"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/quizOption1Button"
+        android:layout_width="170dp"
+        android:layout_height="170dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="288dp"
+        android:backgroundTint="@color/generalCorrectColour"
+        android:fontFamily="@font/roboto_medium"
+        android:text="@string/quizOption1"
+        android:textColor="@color/black"
+        android:textSize="32sp"
+        app:cornerRadius="20dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
