@@ -19,7 +19,6 @@ class QuestionManager() : Parcelable {
 
     fun fillQuestionList(inputStreamReader: InputStreamReader) {
         // Read TSV file
-
         val reader = BufferedReader(inputStreamReader)
         var line: String? = ""
 
