@@ -32,6 +32,7 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
         option3Button.setOnClickListener(this)
         option4Button.setOnClickListener(this)
 
+        // Loads the questions in from the queue and sets the text for the question and answers
         questionManager = intent.getParcelableExtra<QuestionManager>("questionManager")!!
         questionManager?.pushQuestionsIntoQueue()
         var questionQueue = questionManager.getQuestionQueue()
