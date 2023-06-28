@@ -90,12 +90,26 @@
         android:layout_width="189dp"
         android:layout_height="68dp"
         android:backgroundTint="@color/generalDefaultColour"
-        android:text="Next"
         android:onClick="nextQuestion"
+        android:text="@string/nextButtonText"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.939" />
+        app:layout_constraintVertical_bias="0.936"
+        tools:ignore="UsingOnClickInXml" />
+
+    <TextView
+        android:id="@+id/quizAnswerCounter"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="4dp"
+        android:textColor="@color/black"
+        android:textStyle="bold"
+        android:text="@string/questionCounter"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.981" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

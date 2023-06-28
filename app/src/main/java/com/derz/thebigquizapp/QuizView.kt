@@ -1,5 +1,6 @@
 package com.derz.thebigquizapp
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.view.WindowManager
@@ -18,7 +19,9 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
     private lateinit var option4Button: Button
     private lateinit var questionManager: QuestionManager
     private lateinit var nextButton: Button
+    private lateinit var answerCounter: TextView
     var wrong = 0;
+    var counter = 0;
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -56,20 +59,31 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
     }
 
     fun nextQuestion(v: View?){
-        nextButton.setVisibility(View.INVISIBLE)
-        questionManager?.getQuestionQueue()?.remove()
-        questionManager = intent.getParcelableExtra<QuestionManager>("questionManager")!!
-        questionManager?.pushQuestionsIntoQueue()
-        var questionQueue = questionManager.getQuestionQueue()
+        counter += 1
+        if(counter <= 10){
+            answerCounter = findViewById<TextView>(R.id.quizAnswerCounter)
+            answerCounter.setText(counter.toString() + "/10")
+            nextButton.setVisibility(View.INVISIBLE)
+            questionManager?.getQuestionQueue()?.remove()
+            questionManager = intent.getParcelableExtra<QuestionManager>("questionManager")!!
+            questionManager?.pushQuestionsIntoQueue()
+            var questionQueue = questionManager.getQuestionQueue()
 
-        var tempQuestion = questionQueue?.peek()
-        question.text = tempQuestion?.getQuestion()
-        if (tempQuestion != null) {
-            option1Button.text = tempQuestion.getAnswers()[0].getAnswer()
-            option2Button.text = tempQuestion.getAnswers()[1].getAnswer()
-            option3Button.text = tempQuestion.getAnswers()[2].getAnswer()
-            option4Button.text = tempQuestion.getAnswers()[3].getAnswer()
+            var tempQuestion = questionQueue?.peek()
+            question.text = tempQuestion?.getQuestion()
+            if (tempQuestion != null) {
+                option1Button.text = tempQuestion.getAnswers()[0].getAnswer()
+                option2Button.text = tempQuestion.getAnswers()[1].getAnswer()
+                option3Button.text = tempQuestion.getAnswers()[2].getAnswer()
+                option4Button.text = tempQuestion.getAnswers()[3].getAnswer()
+            }
         }
+        else{
+            val results = Intent(this, Results::class.java)
+            results.putExtra("wrong", wrong)
+            startActivity(results)
+        }
+
     }
 
     override fun onClick(v: View?) {
