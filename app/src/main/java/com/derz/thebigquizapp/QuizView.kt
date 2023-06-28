@@ -5,7 +5,9 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+
 
 class QuizView : AppCompatActivity(), View.OnClickListener {
 
@@ -15,6 +17,9 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
     private lateinit var option3Button: Button
     private lateinit var option4Button: Button
     private lateinit var questionManager: QuestionManager
+    private lateinit var nextButton: Button
+    var wrong = 0;
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -26,6 +31,8 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
         option2Button = findViewById<Button>(R.id.quizOption2Button)
         option3Button = findViewById<Button>(R.id.quizOption3Button)
         option4Button = findViewById<Button>(R.id.quizOption4Button)
+        nextButton = findViewById<Button>(R.id.nextButton)
+        nextButton.setVisibility(View.INVISIBLE);
 
         option1Button.setOnClickListener(this)
         option2Button.setOnClickListener(this)
@@ -41,20 +48,42 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
         question.text = tempQuestion?.getQuestion()
         if (tempQuestion != null) {
             option1Button.text = tempQuestion.getAnswers()[0].getAnswer()
-        }
-        if (tempQuestion != null) {
             option2Button.text = tempQuestion.getAnswers()[1].getAnswer()
-        }
-        if (tempQuestion != null) {
             option3Button.text = tempQuestion.getAnswers()[2].getAnswer()
-        }
-        if (tempQuestion != null) {
             option4Button.text = tempQuestion.getAnswers()[3].getAnswer()
         }
 
     }
 
+    fun nextQuestion(v: View?){
+        nextButton.setVisibility(View.INVISIBLE)
+        questionManager?.getQuestionQueue()?.remove()
+        questionManager = intent.getParcelableExtra<QuestionManager>("questionManager")!!
+        questionManager?.pushQuestionsIntoQueue()
+        var questionQueue = questionManager.getQuestionQueue()
+
+        var tempQuestion = questionQueue?.peek()
+        question.text = tempQuestion?.getQuestion()
+        if (tempQuestion != null) {
+            option1Button.text = tempQuestion.getAnswers()[0].getAnswer()
+            option2Button.text = tempQuestion.getAnswers()[1].getAnswer()
+            option3Button.text = tempQuestion.getAnswers()[2].getAnswer()
+            option4Button.text = tempQuestion.getAnswers()[3].getAnswer()
+        }
+    }
+
     override fun onClick(v: View?) {
-        TODO("Not yet implemented")
+        var correct = false;
+        var clicked = false;
+        nextButton.setVisibility(View.VISIBLE)
+        when (v!!.id) {
+            /*          R.id.quizOption1Button -> {validateCorrect(option1Button.text)}
+                        R.id.quizOption2Button -> {validateCorrect(option2Button.text)}
+                        R.id.quizOption3Button -> {validateCorrect(option3Button.text)}
+                        R.id.quizOption4Button -> {validateCorrect(option4Button.text)}*/
+            else -> {}
+        }
+
+
     }
 }

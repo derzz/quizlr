@@ -16,6 +16,7 @@
     // General colours
     <color name="generalCorrectColour">#6BFF53</color>
     <color name="generalWrongColour">#FF5C5C</color>
+    <color name="generalDefaultColour">#8976FF</color>
 
     // Title screen colours
     <color name="titleBackgroundColour">#438EFF</color>
