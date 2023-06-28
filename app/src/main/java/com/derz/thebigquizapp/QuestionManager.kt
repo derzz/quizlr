@@ -58,6 +58,7 @@ class QuestionManager() : Parcelable {
         // Push list of distinct questions into question queue
         for (i in 0 until queueSize) {
             var tempQuestion = this.questionList[indexList[i]]
+            tempQuestion.randomizeAnswers()
             this.questionQueue.add(tempQuestion)
         }
     }
