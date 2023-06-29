@@ -15,6 +15,10 @@ class QuestionManager() : Parcelable {
 
     constructor(parcel: Parcel) : this() {
         parcel.readList(questionList, Question::class.java.classLoader)
+
+        val questionArrayList: ArrayList<Question> = ArrayList()
+        parcel.readList(questionArrayList, Question::class.java.classLoader)
+        questionQueue.addAll(questionArrayList)
     }
 
     fun fillQuestionList(inputStreamReader: InputStreamReader) {
@@ -55,6 +59,7 @@ class QuestionManager() : Parcelable {
             indexList[i] = randomIndex
         }
 
+        clearQuestionQueue()
         // Push list of distinct questions into question queue
         for (i in 0 until queueSize) {
             var tempQuestion = this.questionList[indexList[i]]
@@ -69,9 +74,7 @@ class QuestionManager() : Parcelable {
     }
 
     fun clearQuestionQueue() {
-        while (this.questionQueue.isNotEmpty()) {
-            this.questionQueue.remove()
-        }
+        questionQueue.clear()
     }
 
     // Getter functions
@@ -85,6 +88,7 @@ class QuestionManager() : Parcelable {
 
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeList(questionList)
+        parcel.writeList(ArrayList(questionQueue))
     }
 
     override fun describeContents(): Int {
