@@ -8,6 +8,8 @@ import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import java.util.Queue
+import kotlin.properties.Delegates
 
 
 class QuizView : AppCompatActivity(), View.OnClickListener {
@@ -17,12 +19,12 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
     private lateinit var option2Button: Button
     private lateinit var option3Button: Button
     private lateinit var option4Button: Button
-    private lateinit var questionManager: QuestionManager
     private lateinit var nextButton: Button
     private lateinit var answerCounter: TextView
-    var wrong = 0;
-    var counter = 0;
-
+    private lateinit var questionManager: QuestionManager
+    private lateinit var questionQueue: Queue<Question>
+    private var wrong: Int = 0
+    private var counter = 0;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -44,30 +46,26 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
 
         // Loads the questions in from the queue and sets the text for the question and answers
         questionManager = intent.getParcelableExtra<QuestionManager>("questionManager")!!
-        questionManager?.pushQuestionsIntoQueue()
-        var questionQueue = questionManager.getQuestionQueue()
+        questionQueue = questionManager.getQuestionQueue()
 
         var tempQuestion = questionQueue?.peek()
         question.text = tempQuestion?.getQuestion()
+
         if (tempQuestion != null) {
             option1Button.text = tempQuestion.getAnswers()[0].getAnswer()
             option2Button.text = tempQuestion.getAnswers()[1].getAnswer()
             option3Button.text = tempQuestion.getAnswers()[2].getAnswer()
             option4Button.text = tempQuestion.getAnswers()[3].getAnswer()
         }
-
     }
 
     fun nextQuestion(v: View?){
-        counter += 1
-        if(counter <= 10){
+        counter++
+        if (counter <= 10) {
             answerCounter = findViewById<TextView>(R.id.quizAnswerCounter)
             answerCounter.setText(counter.toString() + "/10")
             nextButton.setVisibility(View.INVISIBLE)
-            questionManager?.getQuestionQueue()?.remove()
-            questionManager = intent.getParcelableExtra<QuestionManager>("questionManager")!!
-            questionManager?.pushQuestionsIntoQueue()
-            var questionQueue = questionManager.getQuestionQueue()
+            questionQueue.remove()
 
             var tempQuestion = questionQueue?.peek()
             question.text = tempQuestion?.getQuestion()
@@ -77,13 +75,11 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
                 option3Button.text = tempQuestion.getAnswers()[2].getAnswer()
                 option4Button.text = tempQuestion.getAnswers()[3].getAnswer()
             }
-        }
-        else{
+        } else {
             val results = Intent(this, Results::class.java)
             results.putExtra("wrong", wrong)
             startActivity(results)
         }
-
     }
 
     override fun onClick(v: View?) {

@@ -49,6 +49,7 @@ class Topics: AppCompatActivity(), View.OnClickListener {
 
         var inputStreamReader = InputStreamReader(assets.open(path))
         questionManager.fillQuestionList(inputStreamReader)
+        questionManager.pushQuestionsIntoQueue()
         val intent = Intent(this, QuizView::class.java)
         intent.putExtra("questionManager", questionManager)
         startActivity(intent)
