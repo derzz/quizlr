@@ -7,7 +7,6 @@ data class Question(
     private val question: String,
     private var answers: MutableList<Answer>,
     private val correctAnswer: String,
-    private var isAnswered: Boolean
     ) : Parcelable {
 
     constructor(parcel: Parcel) : this(
@@ -15,9 +14,7 @@ data class Question(
         mutableListOf<Answer>().apply {
             parcel.readTypedList(this, Answer.CREATOR)
         },
-        parcel.readString() ?: "",
-        parcel.readByte() != 0.toByte()
-    ) {
+        parcel.readString() ?: "") {
     }
 
     // Randomize answers
@@ -38,19 +35,10 @@ data class Question(
         return this.correctAnswer
     }
 
-    fun getIsAnswered(): Boolean {
-        return this.isAnswered
-    }
-
-    fun setIsAnswered(isAnswered: Boolean) {
-        this.isAnswered = isAnswered
-    }
-
     override fun writeToParcel(parcel: Parcel, flags: Int) {
         parcel.writeString(question)
         parcel.writeTypedList(answers)
         parcel.writeString(correctAnswer)
-        parcel.writeByte(if (isAnswered) 1 else 0)
     }
 
     override fun describeContents(): Int {
