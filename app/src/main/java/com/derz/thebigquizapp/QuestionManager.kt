@@ -41,7 +41,7 @@ class QuestionManager() : Parcelable {
             }
 
             // Creates new question and adds it to list of questions
-            var tempQuestion = Question(row[0], answers, row[1], false)
+            var tempQuestion = Question(row[0], answers, row[1])
             questionList.add(tempQuestion)
         }
     }

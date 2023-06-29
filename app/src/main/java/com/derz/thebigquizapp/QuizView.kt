@@ -24,7 +24,7 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
     private lateinit var questionManager: QuestionManager
     private lateinit var questionQueue: Queue<Question>
     private var wrong: Int = 0
-    private var counter = 0;
+    private var counter = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -59,8 +59,9 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
         }
     }
 
-    fun nextQuestion(v: View?){
+    fun nextQuestion(v: View?) {
         counter++
+
         if (counter <= 10) {
             answerCounter = findViewById<TextView>(R.id.quizAnswerCounter)
             answerCounter.setText(counter.toString() + "/10")
