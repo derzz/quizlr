@@ -1,18 +1,18 @@
 <resources>
 
     // General strings
-    <string name="app_name">The Big Quiz App</string>
+    <string name="app_name">Quizlr</string>
     <string name="backButtonText">Back</string>
 
     // Title screen strings
-    <string name="titleScreenText">The Big Quiz</string>
+    <string name="titleScreenText">Quizlr</string>
     <string name="startButtonText">Start</string>
     <string name="instructionButtonText">Instructions</string>
     <string name="settingsButtonText">Settings</string>
 
     // Instruction screen strings
     <string name="instructionsTitleText">Instructions</string>
-    <string name="instructionsInstructionText">Welcome to The Big Quiz! To play, click start on the home screen and you will be quizzed on 10 multiple choice questions relating to your chosen topic. To select an answer, click the corresponding box at the bottom.
+    <string name="instructionsInstructionText">Welcome to Quizlr! To play, click start on the home screen and you will be quizzed on 10 multiple choice questions relating to your chosen topic. To select an answer, click the corresponding box at the bottom.
                                                 \n\n To turn off the music or sound effects, go to settings in the main menu."</string>
     <string name="instructionsGoodLuckText">Good luck!</string>
 
