@@ -9,8 +9,10 @@ Created by [Daniel Zhang](https://github.com/danielrzhang) and [Michael Xie](htt
 
 ## Screenshots of App
 ### Menu Screens
+#### Left to Right: Main Screen, Instructions, Topic Selection
 <img align="bottom" src="https://github.com/Derzz/quiz-app/blob/main/Screenshots/menuScreens.png"/>
 
 ### Question Screens
+#### Left to Right: Sports, University of Waterloo, Video Games
 <img align="bottom" src="https://github.com/Derzz/quiz-app/blob/main/Screenshots/quizScreens.png"/>
 
