@@ -19,7 +19,7 @@ data class Answer(
         return this.answer
     }
 
-    fun getIsCorrectAnswer(): Boolean {
+    fun getCorrectAnswer(): Boolean {
         return this.isCorrectAnswer
     }
 

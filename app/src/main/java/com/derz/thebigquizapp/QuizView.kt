@@ -6,11 +6,8 @@ import android.view.View
 import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import java.util.Queue
-import kotlin.properties.Delegates
-
 
 class QuizView : AppCompatActivity(), View.OnClickListener {
 
@@ -23,7 +20,7 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
     private lateinit var answerCounter: TextView
     private lateinit var questionManager: QuestionManager
     private lateinit var questionQueue: Queue<Question>
-    private var wrong: Int = 0
+    private var wrong = 0
     private var counter = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -36,22 +33,25 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
         option2Button = findViewById<Button>(R.id.quizOption2Button)
         option3Button = findViewById<Button>(R.id.quizOption3Button)
         option4Button = findViewById<Button>(R.id.quizOption4Button)
-        nextButton = findViewById<Button>(R.id.nextButton)
-        nextButton.setVisibility(View.INVISIBLE);
+        nextButton = findViewById<Button>(R.id.quizNextButton)
+        nextButton.visibility = View.INVISIBLE
 
+        // Sets the click listener for the 4 option buttons
         option1Button.setOnClickListener(this)
         option2Button.setOnClickListener(this)
         option3Button.setOnClickListener(this)
         option4Button.setOnClickListener(this)
 
-        // Loads the questions in from the queue and sets the text for the question and answers
+        // Loads the questions in from the queue
         questionManager = intent.getParcelableExtra<QuestionManager>("questionManager")!!
         questionQueue = questionManager.getQuestionQueue()
 
-        var tempQuestion = questionQueue?.peek()
-        question.text = tempQuestion?.getQuestion()
+        // Takes the first question in the queue
+        val tempQuestion = questionQueue.peek()
 
+        // Sets the text for the question text field and the option button text fields
         if (tempQuestion != null) {
+            question.text = tempQuestion.getQuestion()
             option1Button.text = tempQuestion.getAnswers()[0].getAnswer()
             option2Button.text = tempQuestion.getAnswers()[1].getAnswer()
             option3Button.text = tempQuestion.getAnswers()[2].getAnswer()
@@ -59,22 +59,25 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
         }
     }
 
+
     fun nextQuestion(v: View?) {
         counter++
 
         if (counter <= 10) {
             answerCounter = findViewById<TextView>(R.id.quizAnswerCounter)
-            answerCounter.setText(counter.toString() + "/10")
-            nextButton.setVisibility(View.INVISIBLE)
+            answerCounter.text = "$counter/10"
+            nextButton.visibility = View.INVISIBLE
             questionQueue.remove()
 
-            var tempQuestion = questionQueue?.peek()
+            val tempQuestion = questionQueue.peek()
             question.text = tempQuestion?.getQuestion()
             if (tempQuestion != null) {
                 option1Button.text = tempQuestion.getAnswers()[0].getAnswer()
                 option2Button.text = tempQuestion.getAnswers()[1].getAnswer()
                 option3Button.text = tempQuestion.getAnswers()[2].getAnswer()
                 option4Button.text = tempQuestion.getAnswers()[3].getAnswer()
+
+                enableOptionButtons()
             }
         } else {
             val results = Intent(this, Results::class.java)
@@ -84,17 +87,31 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
     }
 
     override fun onClick(v: View?) {
-        var correct = false;
-        var clicked = false;
-        nextButton.setVisibility(View.VISIBLE)
-        when (v!!.id) {
-            /*          R.id.quizOption1Button -> {validateCorrect(option1Button.text)}
-                        R.id.quizOption2Button -> {validateCorrect(option2Button.text)}
-                        R.id.quizOption3Button -> {validateCorrect(option3Button.text)}
-                        R.id.quizOption4Button -> {validateCorrect(option4Button.text)}*/
-            else -> {}
+        var correct = false
+        var clicked = false
+        nextButton.visibility = View.VISIBLE
+
+        val option = v?.id
+
+        if (option == R.id.quizOption1Button || option == R.id.quizOption2Button || option == R.id.quizOption3Button || option == R.id.quizOption4Button) {
+            disableOptionButtons()
+        } else if (option == R.id.quizNextButton) {
+            enableOptionButtons()
         }
+    }
 
+    private fun enableOptionButtons() {
+        option1Button.isEnabled = true
+        option2Button.isEnabled = true
+        option3Button.isEnabled = true
+        option4Button.isEnabled = true
+    }
 
+    private fun disableOptionButtons() {
+        option1Button.isEnabled = false
+        option2Button.isEnabled = false
+        option3Button.isEnabled = false
+        option4Button.isEnabled = false
     }
 }
+

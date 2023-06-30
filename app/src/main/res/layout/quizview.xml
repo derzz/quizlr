@@ -86,7 +86,7 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/nextButton"
+        android:id="@+id/quizNextButton"
         android:layout_width="189dp"
         android:layout_height="68dp"
         android:backgroundTint="@color/generalDefaultColour"
