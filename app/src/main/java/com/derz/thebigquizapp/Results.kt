@@ -6,6 +6,7 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import java.io.InputStreamReader
 
 class Results : AppCompatActivity() {
     private lateinit var right: TextView
@@ -21,6 +22,7 @@ class Results : AppCompatActivity() {
 
         var mIntent = getIntent();
         var wrongInt = mIntent.getIntExtra("wrong", 0);
+        var path = mIntent.getStringExtra("topicName");
 
         right.setText("Right: " + (10 - wrongInt).toString())
         wrong.setText("Wrong: " + wrongInt.toString())
@@ -28,8 +30,16 @@ class Results : AppCompatActivity() {
 
         val tryAgain = findViewById<Button>(R.id.resultsTryAgainButton)
         tryAgain.setOnClickListener {
-            finish()
-            // TODO: "Reset quiz here"
+            var questionManager  = QuestionManager()
+            var path: String? = intent.getStringExtra("topicName")
+            var inputStreamReader = InputStreamReader(path?.let { it1 -> assets.open(it1) })
+            questionManager.fillQuestionList(inputStreamReader)
+            questionManager.pushQuestionsIntoQueue()
+
+            val intent = Intent(this, QuizView::class.java)
+            intent.putExtra("questionManager", questionManager)
+            intent.putExtra("topicName", path)
+            startActivity(intent)
         }
 
         val backToTopics = findViewById<Button>(R.id.resultsBackToTopicsButton)

@@ -52,6 +52,7 @@ class Topics: AppCompatActivity(), View.OnClickListener {
         questionManager.pushQuestionsIntoQueue()
         val intent = Intent(this, QuizView::class.java)
         intent.putExtra("questionManager", questionManager)
+        intent.putExtra("topicName", path)
         // TODO: Add a way to pass the topic name to the QuizView for the Try Again Button
         startActivity(intent)
     }

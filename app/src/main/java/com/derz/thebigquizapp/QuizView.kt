@@ -82,6 +82,7 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
         } else {
             val results = Intent(this, Results::class.java)
             results.putExtra("wrong", wrong)
+            results.putExtra("topicName", intent.getStringExtra("topicName"))
             startActivity(results)
         }
     }
