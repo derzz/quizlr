@@ -42,6 +42,6 @@
     <string name="resultBackToTopicsButtonText">Back to Topics</string>
     <string name="resultBackToMenuButtonText">Back to Menu</string>
     <string name="nextButtonText">Next</string>
-    <string name="questionCounter">0/10</string>
+    <string name="questionCounter">1/10</string>
 
 </resources>
