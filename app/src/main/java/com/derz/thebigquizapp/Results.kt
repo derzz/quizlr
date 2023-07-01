@@ -11,6 +11,7 @@ import java.io.InputStreamReader
 class Results : AppCompatActivity() {
     private lateinit var right: TextView
     private lateinit var wrong: TextView
+    private lateinit var questionManager: QuestionManager
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -20,19 +21,24 @@ class Results : AppCompatActivity() {
         right = findViewById<TextView>(R.id.resultsRightText)
         wrong = findViewById<TextView>(R.id.resultsWrongText)
 
-        var mIntent = getIntent();
-        var wrongInt = mIntent.getIntExtra("wrong", 0);
-        var path = mIntent.getStringExtra("topicName");
+        val mIntent = intent
+        val wrongInt = mIntent.getIntExtra("wrong", 0)
+        mIntent.getStringExtra("topicName")
 
-        right.setText("Right: " + (10 - wrongInt).toString())
-        wrong.setText("Wrong: " + wrongInt.toString())
+        right.text = "Right: " + (10 - wrongInt).toString()
+        wrong.text = "Wrong: " + wrongInt.toString()
 
 
         val tryAgain = findViewById<Button>(R.id.resultsTryAgainButton)
         tryAgain.setOnClickListener {
-            var questionManager  = QuestionManager()
-            var path: String? = intent.getStringExtra("topicName")
-            var inputStreamReader = InputStreamReader(path?.let { it1 -> assets.open(it1) })
+            finish()
+
+            questionManager = QuestionManager()
+            questionManager.clearQuestionList()
+            questionManager.clearQuestionQueue()
+
+            val path: String? = intent.getStringExtra("topicName")
+            val inputStreamReader = InputStreamReader(path?.let { it1 -> assets.open(it1) })
             questionManager.fillQuestionList(inputStreamReader)
             questionManager.pushQuestionsIntoQueue()
 
@@ -55,5 +61,23 @@ class Results : AppCompatActivity() {
             intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP)
             startActivity(intent)
         }
+    }
+
+    override fun onBackPressed() {
+        finish()
+
+        questionManager = QuestionManager()
+        questionManager.clearQuestionList()
+        questionManager.clearQuestionQueue()
+
+        val path: String? = intent.getStringExtra("topicName")
+        val inputStreamReader = InputStreamReader(path?.let { it1 -> assets.open(it1) })
+        questionManager.fillQuestionList(inputStreamReader)
+        questionManager.pushQuestionsIntoQueue()
+
+        val intent = Intent(this, QuizView::class.java)
+        intent.putExtra("questionManager", questionManager)
+        intent.putExtra("topicName", path)
+        startActivity(intent)
     }
 }
