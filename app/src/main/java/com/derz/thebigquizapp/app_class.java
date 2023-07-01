@@ -1,17 +1,10 @@
 package com.derz.thebigquizapp;
 
-import static android.app.ActivityManager.RunningAppProcessInfo.IMPORTANCE_FOREGROUND;
-import static android.app.ActivityManager.RunningAppProcessInfo.IMPORTANCE_VISIBLE;
-
 import android.app.Activity;
-import android.app.ActivityManager;
 import android.app.Application;
 import android.content.Intent;
 import android.os.Bundle;
-import android.widget.Toast;
-
 import androidx.localbroadcastmanager.content.LocalBroadcastManager;
-
 
 public class app_class extends Application implements Application.ActivityLifecycleCallbacks {
 
