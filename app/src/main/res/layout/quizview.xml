@@ -59,7 +59,7 @@
         android:id="@+id/quizOption2Button"
         android:layout_width="170dp"
         android:layout_height="170dp"
-        android:layout_marginTop="292dp"
+        android:layout_marginTop="240dp"
         android:layout_marginEnd="4dp"
         android:backgroundTint="@color/generalDefaultColour"
         android:fontFamily="@font/roboto_medium"
@@ -75,7 +75,7 @@
         android:layout_width="170dp"
         android:layout_height="170dp"
         android:layout_marginStart="8dp"
-        android:layout_marginTop="292dp"
+        android:layout_marginTop="240dp"
         android:backgroundTint="@color/generalDefaultColour"
         android:fontFamily="@font/roboto_medium"
         android:text="@string/quizOption1"
@@ -87,16 +87,18 @@
 
     <Button
         android:id="@+id/quizNextButton"
-        android:layout_width="189dp"
-        android:layout_height="68dp"
+        android:layout_width="120dp"
+        android:layout_height="70dp"
         android:backgroundTint="@color/generalDefaultColour"
         android:onClick="nextQuestion"
         android:text="@string/nextButtonText"
+        android:textColor="@color/black"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.936"
+        app:layout_constraintVertical_bias="0.906"
         tools:ignore="UsingOnClickInXml" />
 
     <TextView

@@ -2,7 +2,6 @@ package com.derz.thebigquizapp
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
@@ -38,8 +37,10 @@ class Topics: AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View?) {
         questionManager = QuestionManager()
+        questionManager.clearQuestionList()
+        questionManager.clearQuestionQueue()
 
-        var path = when (v?.id) {
+        val path = when (v?.id) {
             R.id.topicsUWaterlooButton -> "University of Waterloo.tsv"
             R.id.topicsVideoGamesButton -> "Video Games.tsv"
             R.id.topicsHistoryButton -> "History.tsv"
@@ -47,13 +48,12 @@ class Topics: AppCompatActivity(), View.OnClickListener {
             else -> throw Exception("Not a valid topic")
         }
 
-        var inputStreamReader = InputStreamReader(assets.open(path))
+        val inputStreamReader = InputStreamReader(assets.open(path))
         questionManager.fillQuestionList(inputStreamReader)
         questionManager.pushQuestionsIntoQueue()
         val intent = Intent(this, QuizView::class.java)
         intent.putExtra("questionManager", questionManager)
         intent.putExtra("topicName", path)
-        // TODO: Add a way to pass the topic name to the QuizView for the Try Again Button
         startActivity(intent)
     }
 }

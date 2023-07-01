@@ -7,6 +7,7 @@ import android.view.WindowManager
 import android.widget.Button
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
 import java.util.Queue
 
 class QuizView : AppCompatActivity(), View.OnClickListener {
@@ -20,13 +21,17 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
     private lateinit var answerCounter: TextView
     private lateinit var questionManager: QuestionManager
     private lateinit var questionQueue: Queue<Question>
-    private var wrong = 0
-    private var counter = 1
+    private lateinit var tempQuestion: Question
+    private var wrongCounter: Int = 0
+    private var questionCounter: Int = 1
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.quizview)
+
+        wrongCounter = 0
+        questionCounter = 1
 
         question = findViewById<TextView>(R.id.quizQuestionText)
         option1Button = findViewById<Button>(R.id.quizOption1Button)
@@ -47,58 +52,59 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
         questionQueue = questionManager.getQuestionQueue()
 
         // Takes the first question in the queue
-        val tempQuestion = questionQueue.peek()
+        tempQuestion = questionQueue.peek()
 
         // Sets the text for the question text field and the option button text fields
-        if (tempQuestion != null) {
-            question.text = tempQuestion.getQuestion()
-            option1Button.text = tempQuestion.getAnswers()[0].getAnswer()
-            option2Button.text = tempQuestion.getAnswers()[1].getAnswer()
-            option3Button.text = tempQuestion.getAnswers()[2].getAnswer()
-            option4Button.text = tempQuestion.getAnswers()[3].getAnswer()
-        }
+        question.text = tempQuestion.getQuestion()
+        option1Button.text = tempQuestion.getAnswers()[0].getAnswer()
+        option2Button.text = tempQuestion.getAnswers()[1].getAnswer()
+        option3Button.text = tempQuestion.getAnswers()[2].getAnswer()
+        option4Button.text = tempQuestion.getAnswers()[3].getAnswer()
     }
 
 
     fun nextQuestion(v: View?) {
-        counter++
+        questionCounter++
 
-        if (counter <= 10) {
+        if (questionCounter <= 10) {
             answerCounter = findViewById<TextView>(R.id.quizAnswerCounter)
-            answerCounter.text = "$counter/10"
+            answerCounter.text = "$questionCounter/10"
             nextButton.visibility = View.INVISIBLE
             questionQueue.remove()
 
-            val tempQuestion = questionQueue.peek()
+            tempQuestion = questionQueue.peek()
             question.text = tempQuestion?.getQuestion()
-            if (tempQuestion != null) {
-                option1Button.text = tempQuestion.getAnswers()[0].getAnswer()
-                option2Button.text = tempQuestion.getAnswers()[1].getAnswer()
-                option3Button.text = tempQuestion.getAnswers()[2].getAnswer()
-                option4Button.text = tempQuestion.getAnswers()[3].getAnswer()
+            resetButtonColors()
 
-                enableOptionButtons()
-            }
+            option1Button.text = tempQuestion.getAnswers()[0].getAnswer()
+            option2Button.text = tempQuestion.getAnswers()[1].getAnswer()
+            option3Button.text = tempQuestion.getAnswers()[2].getAnswer()
+            option4Button.text = tempQuestion.getAnswers()[3].getAnswer()
+            enableOptionButtons()
         } else {
+            finish()
             val results = Intent(this, Results::class.java)
-            results.putExtra("wrong", wrong)
+            results.putExtra("wrong", wrongCounter)
             results.putExtra("topicName", intent.getStringExtra("topicName"))
             startActivity(results)
         }
     }
 
     override fun onClick(v: View?) {
-        var correct = false
-        var clicked = false
-        nextButton.visibility = View.VISIBLE
-
         val option = v?.id
 
         if (option == R.id.quizOption1Button || option == R.id.quizOption2Button || option == R.id.quizOption3Button || option == R.id.quizOption4Button) {
             disableOptionButtons()
+
+            setButtonColor(option1Button, tempQuestion.getAnswers()[0].getCorrectAnswer())
+            setButtonColor(option2Button, tempQuestion.getAnswers()[1].getCorrectAnswer())
+            setButtonColor(option3Button, tempQuestion.getAnswers()[2].getCorrectAnswer())
+            setButtonColor(option4Button, tempQuestion.getAnswers()[3].getCorrectAnswer())
+            nextButton.visibility = View.VISIBLE
         } else if (option == R.id.quizNextButton) {
             enableOptionButtons()
         }
+        updateWrongCounter(v)
     }
 
     private fun enableOptionButtons() {
@@ -113,6 +119,40 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
         option2Button.isEnabled = false
         option3Button.isEnabled = false
         option4Button.isEnabled = false
+    }
+
+    private fun setButtonColor(button: Button, isCorrect: Boolean) {
+        val colorResId = if (isCorrect) {
+            R.color.generalCorrectColour
+        } else {
+            R.color.generalWrongColour
+        }
+
+        val color = ContextCompat.getColor(this, colorResId)
+        button.setBackgroundColor(color)
+    }
+
+    private fun resetButtonColors() {
+        val defaultColor = ContextCompat.getColor(this, R.color.generalDefaultColour)
+        option1Button.setBackgroundColor(defaultColor)
+        option2Button.setBackgroundColor(defaultColor)
+        option3Button.setBackgroundColor(defaultColor)
+        option4Button.setBackgroundColor(defaultColor)
+    }
+
+    private fun updateWrongCounter(v: View?) {
+        val option = v?.id
+        val selectedAnswer = tempQuestion.getAnswers().find { it.getCorrectAnswer() }?.getAnswer()
+        val clickedAnswer = when (option) {
+            R.id.quizOption1Button -> option1Button.text.toString()
+            R.id.quizOption2Button -> option2Button.text.toString()
+            R.id.quizOption3Button -> option3Button.text.toString()
+            R.id.quizOption4Button -> option4Button.text.toString()
+            else -> null
+        }
+        if (selectedAnswer != clickedAnswer) {
+            wrongCounter++
+        }
     }
 }
 
