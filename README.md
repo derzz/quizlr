@@ -1,4 +1,4 @@
-# The Big Quiz App
+# Quizlr
 Created by [Daniel Zhang](https://github.com/danielrzhang) and [Michael Xie](https://github.com/Derzz) using Android Studio and Kotlin.
 
 ## Topics
