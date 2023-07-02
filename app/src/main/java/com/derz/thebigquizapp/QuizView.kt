@@ -1,7 +1,10 @@
 package com.derz.thebigquizapp
 
+import android.content.Context
 import android.content.Intent
+import android.media.MediaPlayer
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
@@ -24,11 +27,15 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
     private lateinit var tempQuestion: Question
     private var wrongCounter: Int = 0
     private var questionCounter: Int = 1
+    lateinit var mp: MediaPlayer
+    var playSFX = app_class.getSFXSwitch()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.quizview)
+
+        Log.d("TEST", ""+playSFX)
 
         wrongCounter = 0
         questionCounter = 1
@@ -83,6 +90,7 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
             enableOptionButtons()
         } else {
             finish()
+            if(playSFX) mp.release()
             val results = Intent(this, Results::class.java)
             results.putExtra("wrong", wrongCounter)
             results.putExtra("topicName", intent.getStringExtra("topicName"))
@@ -152,6 +160,16 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
         }
         if (selectedAnswer != clickedAnswer) {
             wrongCounter++
+            if(playSFX){
+                mp = MediaPlayer.create(this, R.raw.wrong)
+                mp.start()
+            }
+        }
+        else{
+            if(playSFX){
+                mp = MediaPlayer.create(this, R.raw.correct)
+                mp.start()
+            }
         }
     }
 }

@@ -23,6 +23,7 @@ public class app_class extends Application implements Application.ActivityLifecy
     private static boolean activityVisible;
 
     private static boolean isMusicSwitch = true; // Flag to track internal activity switch
+    private static boolean isSFXSwitch = true;
 
     private static String currentActivity;
 
@@ -92,4 +93,13 @@ public class app_class extends Application implements Application.ActivityLifecy
     public static boolean getMusicSwitch() {
         return isMusicSwitch;
     }
+
+    public static void setSFXSwitch(boolean internalSwitch) {
+        isSFXSwitch = internalSwitch;
+    }
+
+    public static boolean getSFXSwitch() {
+        return isSFXSwitch;
+    }
 }
+
