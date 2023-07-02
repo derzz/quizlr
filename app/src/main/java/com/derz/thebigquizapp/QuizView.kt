@@ -1,10 +1,8 @@
 package com.derz.thebigquizapp
 
-import android.content.Context
 import android.content.Intent
 import android.media.MediaPlayer
 import android.os.Bundle
-import android.util.Log
 import android.view.View
 import android.view.WindowManager
 import android.widget.Button
@@ -35,8 +33,6 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
         window.setFlags(WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS, WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS)
         setContentView(R.layout.quizview)
 
-        Log.d("TEST", ""+playSFX)
-
         wrongCounter = 0
         questionCounter = 1
 
@@ -59,7 +55,7 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
         questionQueue = questionManager.getQuestionQueue()
 
         // Takes the first question in the queue
-        tempQuestion = questionQueue.peek()
+        tempQuestion = questionQueue.peek() as Question
 
         // Sets the text for the question text field and the option button text fields
         question.text = tempQuestion.getQuestion()
@@ -68,7 +64,6 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
         option3Button.text = tempQuestion.getAnswers()[2].getAnswer()
         option4Button.text = tempQuestion.getAnswers()[3].getAnswer()
     }
-
 
     fun nextQuestion(v: View?) {
         questionCounter++
@@ -79,8 +74,8 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
             nextButton.visibility = View.INVISIBLE
             questionQueue.remove()
 
-            tempQuestion = questionQueue.peek()
-            question.text = tempQuestion?.getQuestion()
+            tempQuestion = questionQueue.peek() as Question
+            question.text = tempQuestion.getQuestion()
             resetButtonColors()
 
             option1Button.text = tempQuestion.getAnswers()[0].getAnswer()
@@ -130,14 +125,15 @@ class QuizView : AppCompatActivity(), View.OnClickListener {
     }
 
     private fun setButtonColor(button: Button, isCorrect: Boolean) {
+        // Background color
         val colorResId = if (isCorrect) {
             R.color.generalCorrectColour
         } else {
             R.color.generalWrongColour
         }
 
-        val color = ContextCompat.getColor(this, colorResId)
-        button.setBackgroundColor(color)
+        val backgroundColor = ContextCompat.getColor(this, colorResId)
+        button.setBackgroundColor(backgroundColor)
     }
 
     private fun resetButtonColors() {
